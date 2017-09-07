@@ -2,14 +2,20 @@ var countdownGenerator = function (x) {
   var count = x;
 
   return function() {
-    console.log(count);
+    var message = '';
+    if (count > 0) {
+      message = 'T-minus ' + count + '...';
+    }
+    if (count === 0) {
+      message = 'Blast Off!';
+    }
+    if (count < 0) {
+      message = 'Rockets already gone, bub!';
+    }
+    console.log(message);
     count = count - 1;
   };
 };
-
-
-
-
 
 var countdown = countdownGenerator(3);
 
